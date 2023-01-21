@@ -3,10 +3,14 @@ package TicTacToe;
 import java.util.Objects;
 
 public class TicTacToe {
-    static String[][] field;
-    static String player;
-    static boolean gameEnd = false;
-    String game;
+    String[][] field;
+    String player;
+    boolean gameEnd = false;
+
+    public TicTacToe() {
+        // создаем новую игру
+        newGame();
+    }
 
     public void newGame() {
         //System.out.println("new game");
@@ -61,12 +65,12 @@ public class TicTacToe {
         x -= 1;
         y -= 1;
 
-        if (field[x][y] == "-") {
+        if (Objects.equals(field[x][y], "-")) {
             if (Objects.equals(player, "X")) {
                 field[x][y] = "X";
-                player = "Y";
+                player = "0";
             } else {
-                field[x][y] = "Y";
+                field[x][y] = "0";
                 player = "X";
             }
             String game = this.checkGame();
@@ -77,9 +81,9 @@ public class TicTacToe {
 
             }
 
-            if (Objects.equals(game, "Y")) {
+            if (Objects.equals(game, "0")) {
                 gameEnd = true;
-                return "Player Y won";
+                return "Player 0 won";
             }
 
             if (Objects.equals(game, "D")) {
@@ -88,7 +92,7 @@ public class TicTacToe {
             }
             return "Move completed";
         } else {
-            return "Cell " + x + 1 + "," + y + 1 + " is already occupied";
+            return "Cell " + (x + 1) + ", " + (y + 1) + " is already occupied";
         }
     }
 }
