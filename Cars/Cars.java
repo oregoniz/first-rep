@@ -1,7 +1,9 @@
+package Cars;
+
 public class Cars {
     public static void main(String[] args) {
 
-       // Car car1 = new Car();
+       // Cars.Car car1 = new Cars.Car();
         Car.build();
         Car.buy();
 
